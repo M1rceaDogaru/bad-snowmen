@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Player/Nose.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/NoseArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Player/Hat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/HatArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Head.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/circle.png" type="Texture" id=5]
 
@@ -31,13 +31,13 @@ position = Vector2( 0, -10 )
 position = Vector2( 0, -10 )
 shape = SubResource( 2 )
 
-[node name="Nose" parent="." instance=ExtResource( 1 )]
-position = Vector2( 25, -13 )
-rotation = 1.48546
-mode = 3
-contacts_reported = 0
-
 [node name="Hat" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, -30 )
-rotation = -0.349012
-mode = 3
+position = Vector2( -5, -30 )
+rotation = -0.291657
+
+[node name="Nose" parent="." instance=ExtResource( 1 )]
+position = Vector2( 21, -12 )
+rotation = 1.50827
+
+[connection signal="hat_hit" from="Hat" to="." method="_on_hat_hit"]
+[connection signal="nose_hit" from="Nose" to="." method="_on_nose_hit"]
