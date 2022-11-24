@@ -33,6 +33,30 @@ position = Vector2( 513, 465.5 )
 scale = Vector2( 1.0625, 2.60938 )
 texture = ExtResource( 1 )
 
+[node name="Fence2" type="StaticBody2D" parent="."]
+position = Vector2( -522, -1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
+position = Vector2( 513, 466 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Fence2"]
+position = Vector2( 513, 465.5 )
+scale = Vector2( 1.0625, 2.60938 )
+texture = ExtResource( 1 )
+
+[node name="Fence3" type="StaticBody2D" parent="."]
+position = Vector2( 523, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
+position = Vector2( 513, 466 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Fence3"]
+position = Vector2( 513, 465.5 )
+scale = Vector2( 1.0625, 2.60938 )
+texture = ExtResource( 1 )
+
 [node name="PlayerLeft" parent="." instance=ExtResource( 2 )]
 position = Vector2( 138, 506 )
 

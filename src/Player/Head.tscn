@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/eye.png" type="Texture" id=1]
+[ext_resource path="res://Textures/circle.png" type="Texture" id=2]
+
+[node name="Head" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -3.8147e-06, -3.8147e-06 )
+scale = Vector2( 0.21875, 0.21875 )
+texture = ExtResource( 2 )
+
+[node name="Eye" type="Sprite" parent="."]
+position = Vector2( 5, -3 )
+scale = Vector2( 0.03125, 0.03125 )
+texture = ExtResource( 1 )

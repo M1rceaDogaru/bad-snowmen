@@ -38,7 +38,7 @@ func _physics_process(delta):
 			throw_snowball()
 			
 	velocity = move_and_slide(velocity, Vector2.UP)
-			
+		
 func jump():
 	print(current_jump_height)
 	velocity.y = -current_jump_height
@@ -46,5 +46,7 @@ func jump():
 func throw_snowball():
 	var new_snowball = snowball.instance()
 	get_tree().root.add_child(new_snowball)
+	new_snowball.player_who_threw = self
 	new_snowball.transform.origin = transform.origin + aim_direction
+	new_snowball.apply_torque_impulse(rand_range(-10, 10))
 	new_snowball.apply_central_impulse(aim_direction * current_throw_distance)
