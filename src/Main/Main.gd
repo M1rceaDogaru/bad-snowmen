@@ -24,7 +24,7 @@ func update_score():
 
 func _process(_delta):
 	if not GameData.is_running:
-		if $RestartMessage.visible and Input.is_action_just_pressed("interact_p1"):
+		if $RestartMessage.visible and (Input.is_action_just_pressed("interact_p1") or Input.is_action_just_pressed("interact_p2")):
 			get_tree().reload_current_scene()
 	else:
 		check_end_round()
