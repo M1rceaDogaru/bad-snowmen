@@ -50,11 +50,12 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	var on_floor = is_on_floor()
+	var input_is_pressed = Input.is_action_pressed(action_input)
 	if Input.is_action_just_pressed(action_input):
 		current_jump_height = min_jump_height
 		current_throw_distance = min_throw_distance
 	
-	if Input.is_action_pressed(action_input):
+	if input_is_pressed:
 		current_jump_height = clamp(current_jump_height + (max_jump_height - min_jump_height) * delta / jump_duration, min_jump_height, max_jump_height)
 		current_throw_distance = clamp(current_throw_distance + (max_throw_distance - min_throw_distance) * delta / throw_duration, min_throw_distance, max_throw_distance)
 	
