@@ -11,7 +11,8 @@ config_version=4
 [application]
 
 config/name="Bad Snowmen"
-run/main_scene="res://Main/Main.tscn"
+run/main_scene="res://Title/Title.tscn"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [autoload]

@@ -32,7 +32,7 @@ var ai_input_wait = 0.0
 var ai_current_input_wait = 0.0
 
 func _ready():
-	set_scale(Vector2(aim_direction.x, 1))
+	set_scale(Vector2(aim_direction.x * scale.x, scale.y))
 	
 func _process(delta):
 	if not GameData.is_running or not is_ai:

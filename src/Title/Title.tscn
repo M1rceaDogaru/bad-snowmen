@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Font/cute_notes_large.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Textures/background.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Font/cute_notes.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Audio/jingle_bells.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Title/Title.gd" type="Script" id=6]
+[ext_resource path="res://Snowball/SpinningSnowball.tscn" type="PackedScene" id=7]
+
+[node name="Title" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 302 )
+texture = ExtResource( 2 )
+
+[node name="Bad" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 87.0
+margin_right = 214.0
+margin_bottom = 165.0
+rect_rotation = -26.4492
+custom_fonts/font = ExtResource( 1 )
+text = "BAD"
+align = 1
+
+[node name="Snowmen" type="Label" parent="."]
+margin_left = 577.0
+margin_right = 1039.0
+margin_bottom = 78.0
+rect_rotation = 12.8827
+custom_fonts/font = ExtResource( 1 )
+text = "SNOWMEN"
+align = 1
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 129, 371 )
+rotation = -0.545543
+scale = Vector2( 5, 5 )
+action_input = "ui_home"
+gravity = 0
+
+[node name="Player2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 913, 429 )
+rotation = 0.282404
+scale = Vector2( 5, 5 )
+action_input = "ui_home"
+aim_direction = Vector2( -1, 0 )
+gravity = 0
+
+[node name="PlayerSelect" type="Node2D" parent="."]
+
+[node name="OnePlayer" type="Label" parent="PlayerSelect"]
+margin_left = 383.0
+margin_top = 129.0
+margin_right = 774.0
+margin_bottom = 187.0
+custom_fonts/font = ExtResource( 4 )
+text = "1 PLAYER"
+
+[node name="TwoPlayers" type="Label" parent="PlayerSelect"]
+margin_left = 385.0
+margin_top = 197.0
+margin_right = 829.0
+margin_bottom = 255.0
+custom_fonts/font = ExtResource( 4 )
+text = "2 PLAYERS"
+
+[node name="OnePlayerSelector" parent="PlayerSelect" instance=ExtResource( 7 )]
+position = Vector2( 317, 157 )
+
+[node name="TwoPlayerSelector" parent="PlayerSelect" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 317, 224 )
+
+[node name="SpeedSelect" type="Node2D" parent="."]
+visible = false
+
+[node name="Normal" type="Label" parent="SpeedSelect"]
+margin_left = 383.0
+margin_top = 129.0
+margin_right = 774.0
+margin_bottom = 187.0
+custom_fonts/font = ExtResource( 4 )
+text = "NORMAL"
+
+[node name="Turbo" type="Label" parent="SpeedSelect"]
+margin_left = 385.0
+margin_top = 197.0
+margin_right = 829.0
+margin_bottom = 255.0
+custom_fonts/font = ExtResource( 4 )
+text = "TURBO"
+
+[node name="NormalSelector" parent="SpeedSelect" instance=ExtResource( 7 )]
+position = Vector2( 317, 157 )
+
+[node name="TurboSelector" parent="SpeedSelect" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 317, 224 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+autoplay = true
