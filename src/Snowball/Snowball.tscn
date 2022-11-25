@@ -28,7 +28,10 @@ emission_sphere_radius = 12.47
 spread = 21.42
 gravity = Vector2( 0, 60 )
 initial_velocity_random = 0.64
-scale_amount = 3.0
+angle = 89.4
+angle_random = 0.43
+scale_amount = 4.0
+scale_amount_random = 0.03
 
 [node name="Blast" type="CPUParticles2D" parent="."]
 emitting = false

@@ -54,6 +54,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(action_input):
 		current_jump_height = min_jump_height
 		current_throw_distance = min_throw_distance
+		if on_floor:
+			$AnimationPlayer.play("Jump")
 	
 	if input_is_pressed:
 		current_jump_height = clamp(current_jump_height + (max_jump_height - min_jump_height) * delta / jump_duration, min_jump_height, max_jump_height)
@@ -68,7 +70,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 		
 func jump():
-	print(current_jump_height)
+	$AnimationPlayer.play_backwards("Jump")
 	velocity.y = -current_jump_height
 
 func throw_snowball():
