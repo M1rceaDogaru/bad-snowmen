@@ -21,6 +21,9 @@ export (bool) var is_ai = false
 export (float) var ai_input_wait_min = 0.05
 export (float) var ai_input_wait_max = 0.3
 
+var has_hat = true
+var has_nose = true
+
 var velocity = Vector2.ZERO
 var current_jump_height = 0.0
 var current_throw_distance = 0.0
@@ -32,7 +35,7 @@ func _ready():
 	set_scale(Vector2(aim_direction.x, 1))
 	
 func _process(delta):
-	if not is_ai:
+	if not GameData.is_running or not is_ai:
 		return
 	do_ai_stuff(delta)	
 	
@@ -47,6 +50,9 @@ func do_ai_stuff(delta):
 			Input.action_press(action_input)
 
 func _physics_process(delta):
+	if not GameData.is_running:
+		return
+		
 	velocity.y += gravity * delta
 	
 	var on_floor = is_on_floor()
@@ -70,6 +76,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 		
 func jump():
+	$JumpSound.play()
 	$AnimationPlayer.play_backwards("Jump")
 	velocity.y = -current_jump_height
 
@@ -81,6 +88,7 @@ func throw_snowball():
 	new_snowball.apply_torque_impulse(rand_range(-10, 10))
 	new_snowball.apply_central_impulse(aim_direction * current_throw_distance)
 	$AnimationPlayer.play("Toss")
+	$ThrowSound.play()
 
 func _on_hat_hit(body):
 	if body.player_who_threw == self:
@@ -94,6 +102,7 @@ func hit_the_hat():
 	get_tree().root.add_child(new_hat)
 	new_hat.transform.origin = $Hat.global_transform.origin
 	new_hat.global_rotation_degrees = $Hat.global_rotation_degrees
+	has_hat = false
 
 func _on_nose_hit(body):
 	if body.player_who_threw == self:
@@ -107,3 +116,4 @@ func hit_the_nose():
 	get_tree().root.add_child(new_nose)
 	new_nose.transform.origin = $Nose.global_transform.origin
 	new_nose.global_rotation_degrees = $Nose.global_rotation_degrees
+	has_nose = false

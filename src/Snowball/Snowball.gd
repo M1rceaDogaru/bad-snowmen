@@ -14,6 +14,7 @@ func _on_Snowball_body_entered(body):
 	call_deferred("stop_snowball")
 
 func stop_snowball():
+	$HitSound.play()
 	mode = RigidBody2D.MODE_STATIC
 	$CollisionShape2D.disabled = true
 	$Blast.restart()
