@@ -64,3 +64,4 @@ position = Vector2( 138, 506 )
 position = Vector2( 866, 510 )
 action_input = "interact_p2"
 aim_direction = Vector2( -1, 0 )
+is_ai = true
