@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Textures/background.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/fence.png" type="Texture" id=3]
 [ext_resource path="res://Main/Main.gd" type="Script" id=4]
+[ext_resource path="res://Audio/jingle_bells.mp3" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1209.5, 28.5 )
@@ -16,6 +17,11 @@ extents = Vector2( 50.125, 107.5 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -9.394
+autoplay = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 509, 297 )

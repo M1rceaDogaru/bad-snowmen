@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jingle_bells.mp3-5cc94cc34bf5d768bfb0ea06167554d4.mp3str"
+
+[deps]
+
+source_file="res://Audio/jingle_bells.mp3"
+dest_files=[ "res://.import/jingle_bells.mp3-5cc94cc34bf5d768bfb0ea06167554d4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

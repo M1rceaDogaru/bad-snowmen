@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
 	$PlayerRight.is_ai = not GameData.is_two_players
 	if GameData.is_turbo:
-		Engine.time_scale = 1.2
+		Engine.time_scale = 1.3
 	else:
 		Engine.time_scale = 1
 
