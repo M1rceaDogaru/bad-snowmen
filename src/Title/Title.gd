@@ -5,6 +5,11 @@ export (float) var hold_duration = .5
 var input_pressed = false
 var input_press_duration = 0.0
 
+func _ready():
+	var has_touchscreen = OS.has_touchscreen_ui_hint()
+	$KeyboardControls.visible = not has_touchscreen
+	$TouchControls.visible = has_touchscreen
+
 func _process(delta):
 	if Input.is_action_just_pressed("interact_p1"):
 		input_pressed = true
